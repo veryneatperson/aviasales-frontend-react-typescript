@@ -1,0 +1,46 @@
+@import '../../config';
+
+.sorting-tab {
+  border-style: solid;
+  border-width: 1px 0px 1px 1px;
+  border-color: $light-gray-2;
+  padding: 15px;
+  width: 167px;
+  cursor: pointer;
+  background: #ffffff;
+  font-size: 12px;
+  line-height: 20px;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+
+  color: #4a4a4a;
+
+  &--active {
+    border: none;
+    background-color: $primary;
+    color: #ffffff;
+    width: 168px;
+    pointer-events: none;
+  }
+
+  &--active + & {
+    border-left: none;
+  }
+
+  &:first-of-type {
+    border-radius: 5px 0 0 5px;
+  }
+
+  &:last-of-type {
+    border-radius: 0 5px 5px 0;
+    border-right-width: 1px;
+  }
+
+  &__label {
+    margin: 0 auto;
+  }
+}

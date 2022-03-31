@@ -21,7 +21,7 @@ function LayoverFilter({
   layover: { name, checked },
   toggleLayover,
 }: LayoverFilterProps) {
-  const handleChange = () => toggleLayover(name);
+  const handleChange = (): void => toggleLayover(name);
 
   return (
     <label className="layover-filter">

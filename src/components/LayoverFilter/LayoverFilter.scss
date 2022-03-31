@@ -1,0 +1,45 @@
+@import '../../config';
+
+.layover-filter {
+  display: block;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 20px;
+  color: $dark-gray;
+  padding: 10px 20px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $secondary;
+  }
+
+  &__input {
+    position: absolute;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  &__label {
+    padding-left: 20px;
+    margin-left: 10px;
+  }
+
+  &__checkbox {
+    border: 1px solid $light-blue-1;
+    box-sizing: border-box;
+    border-radius: 2px;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  }
+
+  &__input:checked + &__checkbox {
+    background-image: url('./checkmark.svg');
+    border: 1px solid $primary;
+  }
+}

@@ -1,0 +1,20 @@
+@import '../../config';
+
+.layover-filters {
+  width: 232px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+
+  &__title {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: $dark-gray;
+    padding: 20px;
+  }
+}

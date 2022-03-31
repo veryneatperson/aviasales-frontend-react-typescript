@@ -31,9 +31,8 @@ export const initState: GroupingState = {
   ],
 };
 
-const isAllOptionChecked = (layovers: GroupingState['layovers']) => layovers
-  .filter((el) => el.name !== 'all')
-  .every((el) => el.checked);
+const isAllOptionChecked = (layovers: GroupingState['layovers']) =>
+  layovers.filter((el) => el.name !== 'all').every((el) => el.checked);
 
 const updateLayovers = (
   layovers: GroupingState['layovers'],
@@ -44,16 +43,19 @@ const updateLayovers = (
     return layovers.map((el) => ({ ...el, checked: newValue }));
   }
 
-  const upd = layovers.map((el) => (el.name === key
-    ? { ...el, checked: !el.checked }
-    : el));
+  const upd = layovers.map((el) =>
+    el.name === key ? { ...el, checked: !el.checked } : el
+  );
 
   return isAllOptionChecked(upd)
     ? upd.map((el) => (el.name === 'all' ? { ...el, checked: true } : el))
     : upd;
 };
 
-export const reducer = (state: GroupingState, action: GroupingAction): GroupingState => {
+export const reducer = (
+  state: GroupingState,
+  action: GroupingAction
+): GroupingState => {
   switch (action.type) {
     case GroupingActionTypes.SET_SORTING:
       return {

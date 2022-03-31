@@ -43,7 +43,8 @@ const fetchData = (): TicketsState => {
     if (!state.searchId) return;
 
     const fetchTickets = async () => {
-      const pollingCallback = () => setTimeout(fetchTickets, POLLING_INTERVAL_IN_SECONDS * 1000);
+      const pollingCallback = () =>
+        setTimeout(fetchTickets, POLLING_INTERVAL_IN_SECONDS * 1000);
 
       try {
         const {

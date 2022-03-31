@@ -1,0 +1,73 @@
+@import '../../config';
+
+.ticket {
+  width: 502px;
+  height: 184px;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  &__price {
+    color: $primary;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  &__segment {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  &__segment:last-of-type {
+    margin-bottom: 0;
+  }
+
+  &__route,
+  &__length,
+  &__stops {
+    width: 141px;
+    height: 39px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-right: 20px;
+  }
+
+  &__stops {
+    width: 140px;
+    margin-right: 0;
+  }
+
+  &__route-label,
+  &__length-label,
+  &__stops-label {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: $light-gray-1;
+  }
+
+  &__route-value,
+  &__length-value,
+  &__stops-value {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    color: $dark-gray;
+  }
+}

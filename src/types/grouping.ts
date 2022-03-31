@@ -1,12 +1,14 @@
 export type SortingOptions = 'cheapest' | 'fastest' | 'optimal';
 export type LayoversOptions = 'all' | 'zero' | 'one' | 'two' | 'three';
 
+export interface Layover {
+  name: LayoversOptions;
+  checked: boolean;
+}
+
 export interface GroupingState {
   sorting: SortingOptions;
-  layovers: {
-    name: LayoversOptions;
-    checked: boolean;
-  }[];
+  layovers: Layover[];
 }
 
 export enum GroupingActionTypes {

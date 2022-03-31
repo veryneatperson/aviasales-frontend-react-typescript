@@ -28,10 +28,19 @@
         "tsx": "never"
       }
     ],
+    "implicit-arrow-linebreak": "off",
+    "jsx-a11y/label-has-associated-control": [
+      "error",
+      {
+        "required": {
+          "some": ["nesting", "id"]
+        }
+      }
+    ],
     "no-unused-vars": "off",
     "react/jsx-indent": [0],
     "react/react-in-jsx-scope": 0,
-    "react/jsx-indent-props": [2, "tab"],
+    "react/jsx-indent-props": [2, 2],
     "react/jsx-props-no-spreading": "off",
     "react/jsx-filename-extension": [
       1,

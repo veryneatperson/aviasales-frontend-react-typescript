@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import Ticket from '../Ticket';
 import Loader from '../Loader';
 
@@ -6,6 +8,7 @@ import { GroupingState, SortingOptions } from '../../types/grouping';
 import { Ticket as TicketInterface } from '../../types/tickets';
 import sortTickets from '../../helpers/sortTickets';
 import filterTickets from '../../helpers/filterTickets';
+import { SHOW_TICKETS_AMOUNT } from '../../constants';
 
 import './TicketList.scss';
 
@@ -15,21 +18,35 @@ interface TicketListProps {
 }
 
 function TicketList({ sorting, layovers }: TicketListProps) {
+  const [showTicketsAmount, setShowTicketsAmount] =
+    useState<number>(SHOW_TICKETS_AMOUNT);
+
   const { isLoading, searchIdError, ticketsError, tickets } = fetchData();
 
-  const renderTickets = (
-    ticketsArr: TicketInterface[]
-  ): JSX.Element[] | undefined => {
-    if (!tickets.length) return undefined;
-
-    return sortTickets(filterTickets(ticketsArr, layovers), sorting)
-      .slice(0, 5)
+  const renderTickets = (ticketsArr: TicketInterface[]): JSX.Element[] =>
+    sortTickets(filterTickets(ticketsArr, layovers), sorting, showTicketsAmount)
+      .slice(0, showTicketsAmount)
       .map((ticket: TicketInterface) => (
         <Ticket
           ticket={ticket}
           key={`${ticket.price}${ticket.segments[0].date}${ticket.segments[1].date}`}
         />
       ));
+
+  const renderShowMoreButton = (ticketsArr: TicketInterface[]) => {
+    if (ticketsArr.length <= showTicketsAmount) return null;
+
+    return (
+      <button
+        onClick={() =>
+          setShowTicketsAmount((amount) => amount + SHOW_TICKETS_AMOUNT)
+        }
+        className="ticket-list__button"
+        type="button"
+      >
+        {`Показать еще ${SHOW_TICKETS_AMOUNT} билетов`}
+      </button>
+    );
   };
 
   if (searchIdError) {
@@ -43,7 +60,8 @@ function TicketList({ sorting, layovers }: TicketListProps) {
   return (
     <div className="ticket-list">
       {isLoading && <Loader />}
-      {renderTickets(tickets)}
+      {!!tickets.length && renderTickets(tickets)}
+      {!!tickets.length && renderShowMoreButton(tickets)}
     </div>
   );
 }

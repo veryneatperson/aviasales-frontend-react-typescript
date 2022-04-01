@@ -10,7 +10,8 @@ const sortByCheapest = (a: Ticket, b: Ticket): number => a.price - b.price;
 
 export default function sortTickets(
   tickets: Ticket[],
-  sorting: SortingOptions
+  sorting: SortingOptions,
+  amount: number
 ): Ticket[] {
   switch (sorting) {
     case 'fastest':
@@ -18,7 +19,7 @@ export default function sortTickets(
     case 'cheapest':
       return tickets.sort(sortByCheapest);
     case 'optimal':
-      return tickets.sort(sortByFastest).slice(0, 5).sort(sortByCheapest);
+      return tickets.sort(sortByFastest).slice(0, amount).sort(sortByCheapest);
     default:
       return tickets;
   }

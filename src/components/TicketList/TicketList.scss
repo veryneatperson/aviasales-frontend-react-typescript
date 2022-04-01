@@ -1,5 +1,28 @@
+@import '../../config';
+
 .ticket-list {
+  margin-bottom: 50px;
+
   &__item {
     margin-bottom: 20px;
+  }
+
+  &__button {
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    background: $primary;
+    border: 1px solid $primary;
+    box-shadow: 0 1px 0 0 $primary, 0 2px 3px 0 rgba(0, 0, 0, 0.25);
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    display: block;
+    height: 55px;
+
+    &:hover {
+      background: $light-blue-2;
+      transition: all 0.3s;
+    }
   }
 }

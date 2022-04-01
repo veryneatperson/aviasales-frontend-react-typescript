@@ -1,13 +1,13 @@
 import { useCallback, Dispatch } from 'react';
 
+import LayoverFilter from '../LayoverFilter';
+
 import {
   GroupingState,
   GroupingActionTypes,
   LayoversOptions,
   ToggleLayoverAction,
 } from '../../types/grouping';
-
-import LayoverFilter from '../LayoverFilter';
 
 import './LayoverFilters.scss';
 

@@ -43,13 +43,11 @@ const updateLayovers = (
     return layovers.map((el) => ({ ...el, checked: newValue }));
   }
 
-  const upd = layovers.map((el) =>
-    el.name === key ? { ...el, checked: !el.checked } : el
-  );
-
-  return isAllOptionChecked(upd)
-    ? upd.map((el) => (el.name === 'all' ? { ...el, checked: true } : el))
-    : upd;
+  return layovers
+    .map((el) => (el.name === key ? { ...el, checked: !el.checked } : el))
+    .map((el, _, arr) =>
+      el.name === 'all' ? { ...el, checked: isAllOptionChecked(arr) } : el
+    );
 };
 
 export const reducer = (

@@ -39,6 +39,7 @@ export const reducer = (
         ...state,
         tickets: [...state.tickets, ...action.payload.tickets],
         fetchedAllTickets: action.payload.stop,
+        isLoading: !action.payload.stop,
       };
     case TicketsActionTypes.GET_TICKETS_FAILURE:
       return {

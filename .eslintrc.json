@@ -45,6 +45,7 @@
       }
     ],
     "no-unused-vars": "off",
+    "indent": [0],
     "react/jsx-indent": [0],
     "react/react-in-jsx-scope": 0,
     "react/jsx-indent-props": [2, 2],

@@ -7,7 +7,6 @@ import displayTime from '../../helpers/displayTime';
 import getCarrierLogoUrl from '../../helpers/getCarrierLogoUrl';
 
 import { Ticket as TicketInterface } from '../../types/tickets';
-
 import { BASE_CARRIER_LOGO_URL } from '../../constants/index';
 
 import './Ticket.scss';
@@ -30,7 +29,7 @@ export default function Ticket({ ticket }: TicketProps) {
         />
       </div>
       {segments.map(({ origin, destination, date, stops, duration }) => (
-        <div className="ticket__segment">
+        <div className="ticket__segment" key={`${date}${duration}`}>
           <div className="ticket__route">
             <span className="ticket__route-label">
               {displayIATAcodes(origin, destination)}

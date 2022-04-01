@@ -39,7 +39,7 @@
   }
 
   &__input:checked + &__checkbox {
-    background-image: url('./checkmark.svg');
+    background-image: url('./assets/checkmark.svg');
     border: 1px solid $primary;
   }
 }

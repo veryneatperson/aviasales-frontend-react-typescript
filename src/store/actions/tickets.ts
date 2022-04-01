@@ -65,7 +65,7 @@ const fetchData = (): TicketsState => {
         pollingCallback();
       } catch (err) {
         if (axios.isAxiosError(err)) {
-          if (err.response && OMIT_ERROR_CODES.includes(err.response.status)) {
+          if (err.response && !OMIT_ERROR_CODES.includes(err.response.status)) {
             dispatch({ type: TicketsActionTypes.GET_TICKETS_FAILURE });
             return;
           }

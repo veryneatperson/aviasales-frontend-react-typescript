@@ -101,6 +101,7 @@
         "ExportDeclaration": { "multiline": true }
       }
     ],
+    "react/jsx-curly-newline": "off",
     "no-console": 1,
     "import/prefer-default-export": 1,
     "no-shadow": 0,

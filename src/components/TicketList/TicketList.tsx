@@ -2,13 +2,14 @@ import { useState } from 'react';
 
 import Ticket from '../Ticket';
 import Loader from '../Loader';
+import Notification from '../Notification';
 
 import fetchData from '../../store/actions/tickets';
 import { GroupingState, SortingOptions } from '../../types/grouping';
 import { Ticket as TicketInterface } from '../../types/tickets';
 import sortTickets from '../../helpers/sortTickets';
 import filterTickets from '../../helpers/filterTickets';
-import { SHOW_TICKETS_AMOUNT } from '../../constants';
+import { NOTIFICATION_MESSAGE, SHOW_TICKETS_AMOUNT } from '../../constants';
 
 import './TicketList.scss';
 
@@ -19,7 +20,7 @@ interface TicketListProps {
 
 function TicketList({ sorting, layovers }: TicketListProps) {
   const [showTicketsAmount, setShowTicketsAmount] =
-    useState<number>(SHOW_TICKETS_AMOUNT);
+    useState(SHOW_TICKETS_AMOUNT);
 
   const { isLoading, searchIdError, ticketsError, tickets } = fetchData();
 
@@ -50,11 +51,15 @@ function TicketList({ sorting, layovers }: TicketListProps) {
   };
 
   if (searchIdError) {
-    return <div>Search Id error</div>;
+    return <Notification {...NOTIFICATION_MESSAGE.searchIdError} />;
   }
 
   if (ticketsError) {
-    return <div>Tickets errror</div>;
+    return <Notification {...NOTIFICATION_MESSAGE.ticketsError} />;
+  }
+
+  if (layovers.every((el) => el.checked === false)) {
+    return <Notification {...NOTIFICATION_MESSAGE.emptyList} />;
   }
 
   return (

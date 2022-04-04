@@ -66,3 +66,10 @@ export interface Ticket {
   carrier: string;
   segments: [Segment, Segment];
 }
+
+export interface Notification {
+  title: string;
+  text: string;
+}
+
+export type NotificationType = 'searchIdError' | 'ticketsError' | 'emptyList';

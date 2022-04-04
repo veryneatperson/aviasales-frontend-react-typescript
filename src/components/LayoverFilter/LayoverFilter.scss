@@ -29,7 +29,7 @@
   &__checkbox {
     border: 1px solid $light-blue-1;
     box-sizing: border-box;
-    border-radius: 2px;
+    border-radius: $border-radius-small;
     width: 20px;
     height: 20px;
     position: absolute;

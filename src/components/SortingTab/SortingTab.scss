@@ -32,11 +32,11 @@
   }
 
   &:first-of-type {
-    border-radius: 5px 0 0 5px;
+    border-radius: $border-radius-default 0 0 $border-radius-default;
   }
 
   &:last-of-type {
-    border-radius: 0 5px 5px 0;
+    border-radius: 0 $border-radius-default $border-radius-default 0;
     border-right-width: 1px;
   }
 

@@ -4,14 +4,11 @@
   width: 232px;
   display: flex;
   flex-direction: column;
-  background-color: #ffffff;
+  background-color: #fff;
   margin-right: 20px;
+  padding-bottom: 10px;
 
   &__title {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
     line-height: 12px;
     letter-spacing: 0.5px;
     text-transform: uppercase;

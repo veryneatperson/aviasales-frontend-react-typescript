@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 
 import { LayoversOptions, Layover } from '../../types/grouping';
 
@@ -37,4 +37,4 @@ function LayoverFilter({
   );
 }
 
-export default React.memo(LayoverFilter);
+export default memo(LayoverFilter);

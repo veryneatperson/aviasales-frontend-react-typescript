@@ -1,3 +1,6 @@
+import { memo } from 'react';
+import isEqual from 'lodash.isequal';
+
 import displayDuration from '../../helpers/displayDuration';
 import displayIATAcodes from '../../helpers/displayIATAcodes';
 import displayLayovers from '../../helpers/displayLayovers';
@@ -15,7 +18,7 @@ interface TicketProps {
   ticket: TicketInterface;
 }
 
-export default function Ticket({ ticket }: TicketProps) {
+function Ticket({ ticket }: TicketProps) {
   const { price, carrier, segments } = ticket;
 
   return (
@@ -57,3 +60,9 @@ export default function Ticket({ ticket }: TicketProps) {
     </div>
   );
 }
+
+function areEqual(prevProps: TicketProps, nextProps: TicketProps): boolean {
+  return isEqual(prevProps, nextProps);
+}
+
+export default memo(Ticket, areEqual);

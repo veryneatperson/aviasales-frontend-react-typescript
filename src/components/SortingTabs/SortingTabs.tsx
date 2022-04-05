@@ -1,4 +1,4 @@
-import { Dispatch } from 'react';
+import { Dispatch, memo } from 'react';
 
 import { SortingOptions, SetSortingAction } from '../../types/grouping';
 import SortingTab from '../SortingTab';
@@ -25,7 +25,7 @@ interface SortingTabsProps {
   dispatch: Dispatch<SetSortingAction>;
 }
 
-export default function SortingTabs({ sorting, dispatch }: SortingTabsProps) {
+function SortingTabs({ sorting, dispatch }: SortingTabsProps) {
   return (
     <div className="sorting-tabs">
       {OPTIONS.map(({ label, name }) => (
@@ -40,3 +40,5 @@ export default function SortingTabs({ sorting, dispatch }: SortingTabsProps) {
     </div>
   );
 }
+
+export default memo(SortingTabs);

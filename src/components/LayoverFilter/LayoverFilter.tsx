@@ -13,14 +13,12 @@ const LAYOVER_LABEL = {
 };
 
 interface LayoverFilterProps {
-  layover: Layover;
+  name: Layover['name'];
+  checked: Layover['checked'];
   toggleLayover: (value: LayoversOptions) => void;
 }
 
-function LayoverFilter({
-  layover: { name, checked },
-  toggleLayover,
-}: LayoverFilterProps) {
+function LayoverFilter({ name, checked, toggleLayover }: LayoverFilterProps) {
   const handleChange = (): void => toggleLayover(name);
 
   return (

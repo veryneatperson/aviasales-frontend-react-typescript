@@ -1,4 +1,6 @@
-import { useCallback, Dispatch } from 'react';
+import { useCallback, Dispatch, memo } from 'react';
+
+import isEqual from 'lodash.isequal';
 
 import LayoverFilter from '../LayoverFilter';
 
@@ -16,10 +18,7 @@ interface LayoverFiltersProps {
   dispatch: Dispatch<ToggleLayoverAction>;
 }
 
-export default function LayoverFilters({
-  layovers,
-  dispatch,
-}: LayoverFiltersProps) {
+function LayoverFilters({ layovers, dispatch }: LayoverFiltersProps) {
   const toggleLayover = useCallback(
     (value: LayoversOptions) =>
       dispatch({
@@ -32,13 +31,23 @@ export default function LayoverFilters({
   return (
     <section className="layover-filters">
       <h2 className="layover-filters__title">Количество пересадок</h2>
-      {layovers.map((el) => (
+      {layovers.map(({ name, checked }) => (
         <LayoverFilter
-          key={el.name}
-          layover={el}
+          key={name}
+          name={name}
+          checked={checked}
           toggleLayover={toggleLayover}
         />
       ))}
     </section>
   );
 }
+
+function areEqual(
+  prevProps: LayoverFiltersProps,
+  nextProps: LayoverFiltersProps
+): boolean {
+  return isEqual(prevProps.layovers, nextProps.layovers);
+}
+
+export default memo(LayoverFilters, areEqual);

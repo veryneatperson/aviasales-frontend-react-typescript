@@ -1,4 +1,4 @@
-import { Dispatch } from 'react';
+import { Dispatch, memo } from 'react';
 
 import {
   SortingOptions,
@@ -15,12 +15,7 @@ interface SortingTabProps {
   dispatch: Dispatch<SetSortingAction>;
 }
 
-export default function SortingTab({
-  label,
-  name,
-  sortBy,
-  dispatch,
-}: SortingTabProps) {
+function SortingTab({ label, name, sortBy, dispatch }: SortingTabProps) {
   const classes = `sorting-tab ${sortBy === name ? 'sorting-tab--active' : ''}`;
 
   const handleClick = (): void =>
@@ -32,3 +27,5 @@ export default function SortingTab({
     </button>
   );
 }
+
+export default memo(SortingTab);

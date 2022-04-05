@@ -57,7 +57,7 @@ export const reducer = (
   switch (action.type) {
     case GroupingActionTypes.SET_SORTING:
       return {
-        ...state,
+        layovers: [...state.layovers],
         sorting: action.payload,
       };
     case GroupingActionTypes.TOGGLE_LAYOVER:

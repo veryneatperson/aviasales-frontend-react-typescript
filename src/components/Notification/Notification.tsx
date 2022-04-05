@@ -1,8 +1,9 @@
+import { memo } from 'react';
 import { Notification as NotificationProps } from '../../types/tickets';
 
 import './Notification.scss';
 
-export default function Notification({ title, text }: NotificationProps) {
+function Notification({ title, text }: NotificationProps) {
   return (
     <div className="notification">
       <h3 className="notification__title">{title}</h3>
@@ -10,3 +11,5 @@ export default function Notification({ title, text }: NotificationProps) {
     </div>
   );
 }
+
+export default memo(Notification);
